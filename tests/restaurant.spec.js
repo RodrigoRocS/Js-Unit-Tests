@@ -36,7 +36,7 @@ const createMenu = require('../src/restaurant');
 
 describe('10 - Implemente a função `createMenu`, bem como seus casos de teste', () => {
   const menu = {
-    food: {'coxinha': 3.90, 'sanduiche': 9.90},
+    food: {'coxinha': 3.90, 'sopa': 9.90},
     drinks: {'agua': 3.90, 'cerveja': 6.90}};
   const menuReturn = createMenu(menu);
   
@@ -53,9 +53,14 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
   it('Verifique se "objetoRetornado.consumption", após a criação do menu, retorna um array vazio.', () => {
     expect(menuReturn.consumption).toEqual([])
   })
-
-    // 6: Faça a implementação do item 6 do README no arquivo src/restaurant.js.
-    
+  it('Verifique se "objetoRetornado.consumption", após a criação do menu, retorna um array vazio.', () => {
+    expect(menuReturn.consumption).toEqual([])
+  })
+  describe('Verifique se, ao chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro', () => {
+    it('se a string existir nas chaves "food" ou "drink", deve ser adicionada ao array consumption', () => {
+      expect()
+    })
+  })  
     // 7: Verifique se, ao chamar uma função associada à chave `order` no objeto retornado, passando uma string como parâmetro
     // - se a string existir nas chaves 'food' ou 'drink', deve ser adicionada ao array consumption
     // - senão, deve exibir a mensagem "Item indisponível" e não adicionar nada ao array

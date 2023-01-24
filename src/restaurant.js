@@ -36,24 +36,57 @@
   BOAS PRÁTICAS TDD: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E VOLTE A ESTE ARQUIVO QUANDO FOR INDICADO!
 */
 
-// Faça os ítens de 1 a 3 no arquivo tests/restaurant.spec.js
-
-// 4: Crie uma função `createMenu()` que, recebendo um objeto como parâmetro, retorna esse objeto no seguinte formato: 
-//  { fetchMenu: () => objetoPassadoPorParametro }.
+const swithcFunc = (param) => {
+  switch (param) {
+    case 'coxinha':
+    case 'agua':
+      return 3.9;
+    case 'sopa':
+      return 9.9;
+    case 'cerveja':
+      return 6.9;
+    default:
+  }
+};
 
 const createMenu = (objeto) => {
-  const obj = { 
+  const obj = {
     fetchMenu: () => objeto,
     consumption: [],
+    order: (string) => {
+      if (
+        Object.keys(objeto.food).includes(string) || Object.keys(objeto.drinks).includes(string)
+      ) {
+        obj.consumption.push(string);
+      } else {
+        throw new Error('Item indisponível');
+      }
+    },
+    pay: () => {
+      let total = 0;
+      const consumptio = obj.consumption;
+      for (let i = 0; i < consumptio.length; i += 1) {
+       total += swithcFunc(consumptio[i]);
+      }
+
+      const dezP = total * 0.1;
+      return total + dezP;
+    },
   };
-  
+
   return obj;
 };
 
-// Faça o item 5 no arquivo tests/restaurant.spec.js
-
-// 6: Adicione ao objeto retornado por `createMenu()` uma chave de nome `consumption` que, como valor inicial, tem um array vazio.
-
+const meuRestaurante = createMenu({
+  food: { coxinha: 3.9, sanduiche: 9.9 },
+  drinks: { agua: 3.9, cerveja: 6.9 },
+});
+console.log(meuRestaurante.order('coxinha'));
+console.log(meuRestaurante.order('coxinha'));
+console.log(meuRestaurante.order('coxinha'));
+console.log(meuRestaurante.order('cerveja'));
+console.log(meuRestaurante.consumption);
+console.log(meuRestaurante.pay());
 // Faça o item 7 no arquivo tests/restaurant.spec.js
 
 // 8: Crie uma função, associada à chave 'order', que, ao receber uma string como parâmetro, adiciona essa string ao array da chave 'consumption'.
