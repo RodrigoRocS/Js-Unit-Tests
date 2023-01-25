@@ -36,18 +36,18 @@
   BOAS PRÁTICAS TDD: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E VOLTE A ESTE ARQUIVO QUANDO FOR INDICADO!
 */
 
-const swithcFunc = (param) => {
-  switch (param) {
-    case 'coxinha':
-    case 'agua':
-      return 3.9;
-    case 'sopa':
-      return 9.9;
-    case 'cerveja':
-      return 6.9;
-    default:
-  }
-};
+// const swithcFunc = (param) => {
+//   switch (param) {
+//     case 'coxinha':
+//     case 'agua':
+//       return 3.9;
+//     case 'sopa':
+//       return 9.9;
+//     case 'cerveja':
+//       return 6.9;
+//     default:
+//   }
+// };
 
 const createMenu = (objeto) => {
   const obj = {
@@ -65,12 +65,11 @@ const createMenu = (objeto) => {
     pay: () => {
       let total = 0;
       const consumptio = obj.consumption;
-      for (let i = 0; i < consumptio.length; i += 1) {
-       total += swithcFunc(consumptio[i]);
+      const juntaArray = Object.assign(obj.fetchMenu().food, obj.fetchMenu().drinks);
+      for (const i of consumptio) {
+        total += juntaArray[i];
       }
-
-      const dezP = total * 0.1;
-      return total + dezP;
+      return total * 1.1;
     },
   };
 
