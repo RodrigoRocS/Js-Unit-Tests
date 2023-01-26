@@ -80,12 +80,12 @@ const meuRestaurante = createMenu({
   food: { coxinha: 3.9, sanduiche: 9.9 },
   drinks: { agua: 3.9, cerveja: 6.9 },
 });
-console.log(meuRestaurante.order('coxinha'));
-console.log(meuRestaurante.order('coxinha'));
-console.log(meuRestaurante.order('coxinha'));
-console.log(meuRestaurante.order('cerveja'));
-console.log(meuRestaurante.consumption);
-console.log(meuRestaurante.pay());
+// console.log(meuRestaurante.order('coxinha'));
+// console.log(meuRestaurante.order('sopa'));
+// console.log(meuRestaurante.order('cerveja'));
+// console.log(meuRestaurante.order('sopa'));
+// console.log(meuRestaurante.consumption);
+// console.log(meuRestaurante.pay());
 // Faça o item 7 no arquivo tests/restaurant.spec.js
 
 // 8: Crie uma função, associada à chave 'order', que, ao receber uma string como parâmetro, adiciona essa string ao array da chave 'consumption'.
